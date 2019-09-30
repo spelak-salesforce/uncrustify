@@ -36,7 +36,7 @@ static const chunk_tag_t symbols5[] =
 static const chunk_tag_t symbols4[] =
 {
    { "!<>=",      CT_COMPARE, LANG_D                                 },
-   { ">>>=",      CT_ASSIGN,  LANG_D | LANG_JAVA | LANG_PAWN         },
+   { ">>>=",      CT_ASSIGN,  LANG_D | LANG_JAVA | LANG_PAWN | LANG_APEX        },
    { R"_(<::>)_", CT_TSQUARE, LANG_C | LANG_CPP | LANG_OC | FLAG_DIG },   // digraph []
    { R"_(%:%:)_", CT_PP,      LANG_C | LANG_CPP | LANG_OC | FLAG_DIG },   // digraph ##
 };
@@ -46,7 +46,7 @@ static const chunk_tag_t symbols3[] =
 {
    { "!<=",      CT_COMPARE,      LANG_D                                                       },
    { "!<>",      CT_COMPARE,      LANG_D                                                       },
-   { "!==",      CT_COMPARE,      LANG_D | LANG_ECMA                                           },
+   { "!==",      CT_COMPARE,      LANG_D | LANG_ECMA | LANG_APEX                                },
    { "!>=",      CT_COMPARE,      LANG_D                                                       },
    { "->*",      CT_MEMBER,       LANG_C | LANG_CPP | LANG_OC | LANG_D                         },
    { "...",      CT_ELLIPSIS,     LANG_C | LANG_CPP | LANG_OC | LANG_D | LANG_PAWN | LANG_JAVA },
@@ -70,52 +70,52 @@ static const chunk_tag_t symbols3[] =
 // 2-char symbols
 static const chunk_tag_t symbols2[] =
 {
-   { "!<",      CT_COMPARE,      LANG_D                                 },
-   { "!=",      CT_COMPARE,      LANG_ALL                               },
-   { "!>",      CT_COMPARE,      LANG_D                                 },
-   { "!~",      CT_COMPARE,      LANG_D                                 },
-   { "##",      CT_PP,           LANG_C | LANG_CPP | LANG_OC            },
-   { "#@",      CT_POUND,        LANG_C | LANG_CPP | LANG_OC            },                     // MS extension
-   { "%=",      CT_ASSIGN,       LANG_ALL                               },
-   { "&&",      CT_BOOL,         LANG_ALL                               },
-   { "&=",      CT_ASSIGN,       LANG_ALL                               },
-   { "*=",      CT_ASSIGN,       LANG_ALL                               },
-   { "++",      CT_INCDEC_AFTER, LANG_ALL                               },
-   { "+=",      CT_ASSIGN,       LANG_ALL                               },
-   { "--",      CT_INCDEC_AFTER, LANG_ALL                               },
-   { "-=",      CT_ASSIGN,       LANG_ALL                               },
-   { "->",      CT_MEMBER,       LANG_ALLC                              },
-   { ".*",      CT_MEMBER,       LANG_C | LANG_CPP | LANG_OC | LANG_D   },
-   { "..",      CT_RANGE,        LANG_D                                 },
-   { "?.",      CT_NULLCOND,     LANG_CS                                },                     // null conditional operator
-   { "/=",      CT_ASSIGN,       LANG_ALL                               },
-   { "::",      CT_DC_MEMBER,    LANG_ALLC                              },
-   { "<<",      CT_ARITH,        LANG_ALL                               },
-   { "<=",      CT_COMPARE,      LANG_ALL                               },
-   { "<>",      CT_COMPARE,      LANG_D                                 },
-   { "==",      CT_COMPARE,      LANG_ALL                               },
-   { ">=",      CT_COMPARE,      LANG_ALL                               },
-   { ">>",      CT_ARITH,        LANG_ALL                               },
-   { "[]",      CT_TSQUARE,      LANG_ALL                               },
-   { "^=",      CT_ASSIGN,       LANG_ALL                               },
-   { "|=",      CT_ASSIGN,       LANG_ALL                               },
-   { "||",      CT_BOOL,         LANG_ALL                               },
-   { "~=",      CT_COMPARE,      LANG_D                                 },
-   { "~~",      CT_COMPARE,      LANG_D                                 },
-   { "=>",      CT_LAMBDA,       LANG_VALA | LANG_CS | LANG_D           },
-   { "??",      CT_COMPARE,      LANG_CS | LANG_VALA                    },
-   { R"_(<%)_", CT_BRACE_OPEN,   LANG_C | LANG_CPP | LANG_OC | FLAG_DIG },                     // digraph {
-   { R"_(%>)_", CT_BRACE_CLOSE,  LANG_C | LANG_CPP | LANG_OC | FLAG_DIG },                     // digraph }
-   { R"_(<:)_", CT_SQUARE_OPEN,  LANG_C | LANG_CPP | LANG_OC | FLAG_DIG },                     // digraph [
-   { R"_(:>)_", CT_SQUARE_CLOSE, LANG_C | LANG_CPP | LANG_OC | FLAG_DIG },                     // digraph ]
-   { R"_(%:)_", CT_POUND,        LANG_C | LANG_CPP | LANG_OC | FLAG_DIG },                     // digraph #
+   { "!<",      CT_COMPARE,      LANG_D                                   },
+   { "!=",      CT_COMPARE,      LANG_ALL                                 },
+   { "!>",      CT_COMPARE,      LANG_D                                   },
+   { "!~",      CT_COMPARE,      LANG_D                                   },
+   { "##",      CT_PP,           LANG_C | LANG_CPP | LANG_OC              },
+   { "#@",      CT_POUND,        LANG_C | LANG_CPP | LANG_OC              },                     // MS extension
+   { "%=",      CT_ASSIGN,       LANG_ALL                                 },
+   { "&&",      CT_BOOL,         LANG_ALL                                 },
+   { "&=",      CT_ASSIGN,       LANG_ALL                                 },
+   { "*=",      CT_ASSIGN,       LANG_ALL                                 },
+   { "++",      CT_INCDEC_AFTER, LANG_ALL                                 },
+   { "+=",      CT_ASSIGN,       LANG_ALL                                 },
+   { "--",      CT_INCDEC_AFTER, LANG_ALL                                 },
+   { "-=",      CT_ASSIGN,       LANG_ALL                                 },
+   { "->",      CT_MEMBER,       LANG_ALLC                                },
+   { ".*",      CT_MEMBER,       LANG_C | LANG_CPP | LANG_OC | LANG_D     },
+   { "..",      CT_RANGE,        LANG_D                                   },
+   { "?.",      CT_NULLCOND,     LANG_CS                                  },                     // null conditional operator
+   { "/=",      CT_ASSIGN,       LANG_ALL                                 },
+   { "::",      CT_DC_MEMBER,    LANG_ALLC                                },
+   { "<<",      CT_ARITH,        LANG_ALL                                 },
+   { "<=",      CT_COMPARE,      LANG_ALL                                 },
+   { "<>",      CT_COMPARE,      LANG_D                                   },
+   { "==",      CT_COMPARE,      LANG_ALL                                 },
+   { ">=",      CT_COMPARE,      LANG_ALL                                 },
+   { ">>",      CT_ARITH,        LANG_ALL                                 },
+   { "[]",      CT_TSQUARE,      LANG_ALL                                 },
+   { "^=",      CT_ASSIGN,       LANG_ALL                                 },
+   { "|=",      CT_ASSIGN,       LANG_ALL                                 },
+   { "||",      CT_BOOL,         LANG_ALL                                 },
+   { "~=",      CT_COMPARE,      LANG_D                                   },
+   { "~~",      CT_COMPARE,      LANG_D                                   },
+   { "=>",      CT_LAMBDA,       LANG_VALA | LANG_CS | LANG_D | LANG_APEX },
+   { "??",      CT_COMPARE,      LANG_CS | LANG_VALA                      },
+   { R"_(<%)_", CT_BRACE_OPEN,   LANG_C | LANG_CPP | LANG_OC | FLAG_DIG   },                     // digraph {
+   { R"_(%>)_", CT_BRACE_CLOSE,  LANG_C | LANG_CPP | LANG_OC | FLAG_DIG   },                     // digraph }
+   { R"_(<:)_", CT_SQUARE_OPEN,  LANG_C | LANG_CPP | LANG_OC | FLAG_DIG   },                     // digraph [
+   { R"_(:>)_", CT_SQUARE_CLOSE, LANG_C | LANG_CPP | LANG_OC | FLAG_DIG   },                     // digraph ]
+   { R"_(%:)_", CT_POUND,        LANG_C | LANG_CPP | LANG_OC | FLAG_DIG   },                     // digraph #
 };
 
 // 1-char symbols
 static const chunk_tag_t symbols1[] =
 {
    { "!", CT_NOT,          LANG_ALL                            },
-   { "#", CT_POUND,        LANG_ALL & ~(LANG_JAVA | LANG_ECMA) },
+   { "#", CT_POUND,        LANG_ALL & ~(LANG_JAVA | LANG_ECMA | LANG_APEX) },
    { "$", CT_COMPARE,      LANG_D                              },
    { "%", CT_ARITH,        LANG_ALL                            },
    { "&", CT_AMP,          LANG_ALL                            },
